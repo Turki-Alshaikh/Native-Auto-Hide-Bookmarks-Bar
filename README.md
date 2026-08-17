@@ -11,11 +11,6 @@ A lightweight Chrome Extension that automatically hides the bookmarks bar and re
 * **Smart RTL/LTR Support:** Automatically detects the browser's UI language. Uses CSS Logical Properties to dynamically flip the layout, margins, and dropdown directions for Right-to-Left (e.g., Arabic) and Left-to-Right (e.g., English) languages.
 * **Modern Architecture:** Built with Vanilla JavaScript and pure CSS. Fully compliant with Chrome's **Manifest V3**.
 
-## 📸 Preview
-
-*(Place a GIF or Image here showing the hover effect and dropdowns)*
-<!-- ![Extension Preview](link-to-your-image.png) -->
-
 ## 🛠️ Installation (Developer Mode)
 
 Since this extension requires modification of the browser's native-like UI behavior, it is currently loaded via Developer Mode.
