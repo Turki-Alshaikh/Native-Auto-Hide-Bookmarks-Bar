@@ -1,0 +1,117 @@
+#chrome-native-autohide-bar {
+    position: fixed;
+    top: -30px; 
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 30px; 
+    z-index: 2147483647;
+    transition: top 0.15s ease-out;
+    background-color: #202124; 
+    border-bottom: 1px solid #3c4043; 
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+#chrome-autohide-trigger {
+    position: absolute;
+    bottom: -15px; 
+    width: 100%;
+    height: 15px;
+    background: transparent;
+}
+
+#chrome-native-autohide-bar:hover,
+#chrome-native-autohide-bar:focus-within {
+    top: 0;
+}
+
+#chrome-bookmarks-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-inline-start: 8px; /* تضبط المسافة تلقائياً حسب الاتجاه يمين/يسار */
+}
+
+/* تنسيق العناصر (المواقع والمجلدات) */
+.chrome-bookmark-item {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0 8px;
+    margin-inline-end: 2px;
+    border-radius: 4px; 
+    text-decoration: none !important;
+    color: #e8eaed !important; 
+    cursor: default;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.chrome-bookmark-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.chrome-bookmark-icon {
+    width: 16px;
+    height: 16px;
+    margin-inline-end: 6px; /* المسافة بين الأيقونة والنص تتغير تلقائياً */
+    pointer-events: none;
+}
+
+.chrome-bookmark-text {
+    font-size: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    pointer-events: none;
+}
+
+/* -------------------------------------
+   تنسيق المجلدات والقوائم المنسدلة 
+   ------------------------------------- */
+.chrome-folder-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.chrome-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #292a2d; /* لون القائمة المنسدلة بكروم */
+    border: 1px solid #3c4043;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    padding: 4px 0;
+    min-width: 200px;
+    z-index: 2147483647;
+}
+
+.chrome-dropdown.show {
+    display: block;
+}
+
+/* توجيه القائمة المنسدلة الأساسية */
+[dir="ltr"] #chrome-bookmarks-container > .chrome-folder-wrapper > .chrome-dropdown { left: 0; }
+[dir="rtl"] #chrome-bookmarks-container > .chrome-folder-wrapper > .chrome-dropdown { right: 0; }
+
+/* توجيه القوائم المنسدلة المتفرعة (مجلد داخل مجلد) */
+.chrome-dropdown .chrome-folder-wrapper .chrome-dropdown { top: -5px; }
+[dir="ltr"] .chrome-dropdown .chrome-folder-wrapper .chrome-dropdown { left: 100%; }
+[dir="rtl"] .chrome-dropdown .chrome-folder-wrapper .chrome-dropdown { right: 100%; }
+
+/* تنسيق العناصر داخل القوائم المنسدلة */
+.chrome-dropdown .chrome-bookmark-item {
+    height: 28px;
+    padding-inline-start: 12px;
+    padding-inline-end: 16px;
+    margin: 0;
+    border-radius: 0; /* المربعات داخل القائمة بدون انحناء */
+    width: 100%;
+}
+
+.chrome-dropdown .chrome-bookmark-text {
+    max-width: 220px;
+}

@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Native Auto-Hide Bookmarks Bar",
+  "version": "3.0",
+  "permissions": ["bookmarks", "favicon"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["style.css"],
+      "js": ["content.js"]
+    }
+  ]
+}
